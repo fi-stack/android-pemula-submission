@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Spongebob App</string>
+    <string name="characters_name">Nama Karakter</string>
+    <string name="detail">Detail</string>
+    <string name="list">List</string>
+    <string name="about">About</string>
+</resources>
