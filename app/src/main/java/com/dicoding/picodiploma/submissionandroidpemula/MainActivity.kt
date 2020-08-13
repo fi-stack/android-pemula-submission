@@ -1,5 +1,6 @@
 package com.dicoding.picodiploma.submissionandroidpemula
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        supportActionBar?.title = "Home"
         rvCharacters = findViewById(R.id.rv_characters)
         rvCharacters.setHasFixedSize(true)
 
@@ -34,11 +35,17 @@ class MainActivity : AppCompatActivity() {
             )
         rvCharacters.adapter = listCharacterAdapter
 
-        listCharacterAdapter.setOnItemClickCallback(object:ListCharacterAdapter.OnItemClickCallback {
+        listCharacterAdapter.setOnItemClickCallback(object :
+            ListCharacterAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Character) {
                 showSelectedCharacter(data)
             }
         })
+    }
+
+    private fun showAbout() {
+        val about = Intent(this@MainActivity, AboutActivity::class.java)
+        startActivity(about)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -53,11 +60,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun setMode(selectedMode: Int) {
         when (selectedMode) {
-            R.id.action_list -> {
-
-            }
             R.id.action_about -> {
-
+                showAbout()
             }
         }
     }

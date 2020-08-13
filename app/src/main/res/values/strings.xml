@@ -4,4 +4,7 @@
     <string name="detail">Detail</string>
     <string name="list">List</string>
     <string name="about">About</string>
+    <string name="name">Moch Rafi Nur Oktafian</string>
+    <string name="email">mochrafinuroktafian@gmail.com</string>
+    <string name="bio">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia, ea tempore beatae omnis accusamus dolorem molestias reiciendis. Architecto quidem molestiae minus quae obcaecati nisi inventore placeat, quasi cumque? Animi, dicta.</string>
 </resources>
