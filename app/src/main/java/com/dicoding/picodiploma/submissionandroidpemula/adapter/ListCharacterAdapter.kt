@@ -1,13 +1,17 @@
 package com.dicoding.picodiploma.submissionandroidpemula.adapter
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.dicoding.picodiploma.submissionandroidpemula.DetailActivity
 import com.dicoding.picodiploma.submissionandroidpemula.R
 import com.dicoding.picodiploma.submissionandroidpemula.model.Character
 
@@ -37,12 +41,21 @@ class ListCharacterAdapter(private val listCharacter: ArrayList<Character>) :
         holder.tvName.text = character.name
         holder.tvDetail.text = character.detail
         holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(listCharacter[holder.adapterPosition]) }
+
+        holder.itemLayout.setOnClickListener {
+            val intent = Intent(holder.context, DetailActivity::class.java)
+            intent.putExtra("index", position)
+            holder.itemView.context.startActivity(intent)
+        }
     }
 
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tvName: TextView = itemView.findViewById(R.id.tv_item_name)
         var tvDetail: TextView = itemView.findViewById(R.id.tv_item_detail)
         var imgPhoto: ImageView = itemView.findViewById(R.id.img_item_photo)
+
+        var itemLayout: RelativeLayout = itemView.findViewById(R.id.item)
+        var context: Context = itemView.context
     }
 
     interface OnItemClickCallback {
